@@ -1,0 +1,62 @@
+[
+{
+  "model": "users.user",
+  "pk": 1,
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-08-30T13:55:11.223Z",
+    "name": "Антон",
+    "last_name": "Андреев",
+    "email": "aa.mail@sample.com",
+    "phone": "89992001010",
+    "avatar": "",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.user",
+  "pk": 2,
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-08-30T13:55:45.511Z",
+    "name": "Виталий",
+    "last_name": "Улиткин",
+    "email": "vw.mail@sample.com",
+    "phone": "89992002020",
+    "avatar": "",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.user",
+  "pk": 3,
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-08-30T13:56:24.821Z",
+    "name": "Сергей",
+    "last_name": "Петров",
+    "email": "sp.mail@sample.com",
+    "phone": "89994001010",
+    "avatar": "",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
