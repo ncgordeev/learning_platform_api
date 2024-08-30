@@ -5,13 +5,19 @@ from users.models import User, Payments
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['name', 'last_name', 'phone', 'email', 'is_staff']
+        fields = ['id', 'name', 'last_name', 'phone', 'email', 'is_superuser', 'is_staff', 'is_active']
+
+
+class UserRegisterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['email', 'password']
 
 
 class PaymentsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Payments
-        fields = '__all__'
+        fields = ['id', 'name', 'last_name', 'phone', 'email', 'is_superuser', 'is_staff', 'is_active', 'payments_list']
 
 
 class UserDetailSerializer(serializers.ModelSerializer):
