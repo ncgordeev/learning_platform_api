@@ -14,6 +14,12 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         fields = ['email', 'password']
 
 
+class UserNotOwnerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'email', 'name', 'is_active']
+
+
 class PaymentsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Payments
