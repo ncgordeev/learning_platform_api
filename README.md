@@ -59,6 +59,13 @@ poetry install - Устанавливает зависимости
   
     # API Stripe
     STRIPE_API_KEY=secret_key - API-ключ stripe.com
+  
+    # Mailing
+    EMAIL_HOST_USER=
+    EMAIL_HOST_PASSWORD=
+    
+    # Redis
+    REDIS=
     ```
 
 ### 4. Настройка БД:

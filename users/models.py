@@ -53,8 +53,8 @@ class Payments(models.Model):
 
 
 class Subscription(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Пользователь")
-    course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name="Курс")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='subscription', verbose_name="Пользователь")
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='subscription', verbose_name="Курс")
 
     def __str__(self):
         return f"{self.user} | {self.course}"
