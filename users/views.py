@@ -7,8 +7,9 @@ from materials.models import Course
 from users.models import User, Payments, Subscription
 from users.permissions import IsOwnerOrReadOnly
 from users.serializers import UserSerializer, PaymentsSerializer, UserDetailSerializer, UserRegisterSerializer, \
-    UserNotOwnerSerializer
+    UserNotOwnerSerializer, PaymentsStatusSerializer
 from rest_framework import generics, views
+from users.services import create_strip_product, create_strip_price, create_strip_session, retrieve_strip_session
 
 
 class UserCreateAPIView(generics.CreateAPIView):
@@ -58,6 +59,19 @@ class PaymentsListAPIView(generics.ListAPIView):
 
 class PaymentsCreateAPIView(generics.CreateAPIView):
     serializer_class = PaymentsSerializer
+
+    def perform_create(self, serializer):
+        payment = serializer.save(user=self.request.user)
+        product_id = create_strip_product(payment)
+        price_id = create_strip_price(product_id, payment)
+        payment.payment_id, payment.payment_link = create_strip_session(price_id)
+        payment.payment_status = retrieve_strip_session(payment.payment_id)
+        payment.save()
+
+
+class PaymentsRetrieveAPIView(generics.RetrieveAPIView):
+    serializer_class = PaymentsStatusSerializer
+    queryset = Payments.objects.all()
 
 
 class SubscribeAPIView(views.APIView):

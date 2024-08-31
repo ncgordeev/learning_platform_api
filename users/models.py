@@ -31,13 +31,16 @@ class Payments(models.Model):
         CASH = 'Наличные', _('Наличные')
         CARD = 'Карта', _('Карта')
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь', **NULLABLE)
     payment_date = models.DateTimeField(auto_now=True, verbose_name='Дата оплаты')
     paid_course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name='Оплаченный курс', **NULLABLE)
     paid_lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, verbose_name='Оплаченный урок', **NULLABLE)
     payment_amount = models.PositiveIntegerField(verbose_name='Сумма платежа')
     payment_method = models.CharField(default=PaymentMethodChoices.CASH, choices=PaymentMethodChoices,
                                       verbose_name='Способ оплаты')
+    payment_id = models.CharField(max_length=255, verbose_name='id платежа', **NULLABLE)
+    payment_link = models.URLField(max_length=400, verbose_name='Ссылка на оплату', **NULLABLE)
+    payment_status = models.URLField(max_length=400, verbose_name='Статус платежа', **NULLABLE)
 
     def __str__(self):
         return (f"{self.user} | {self.payment_date} | {self.payment_amount} | {self.payment_method} | "

@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from users.models import User, Payments, Subscription
+from users.services import retrieve_strip_session
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -26,6 +27,17 @@ class PaymentsSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'last_name', 'phone', 'email', 'is_superuser', 'is_staff', 'is_active', 'payments_list']
 
 
+class PaymentsStatusSerializer(serializers.ModelSerializer):
+    payment_status = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Payments
+        exclude = ['payment_link', ]
+
+    def get_payment_status(self, instance):
+        return retrieve_strip_session(instance.payment_id)
+
+
 class UserDetailSerializer(serializers.ModelSerializer):
     payments_list = PaymentsSerializer(source='payments_set', many=True)
 
@@ -33,6 +45,7 @@ class UserDetailSerializer(serializers.ModelSerializer):
         model = User
         fields = ['id', 'name', 'last_name', 'phone', 'email''is_superuser', 'is_staff', 'is_active',
                   'payments_list']
+
 
 class SubscriptionSerializer(serializers.ModelSerializer):
     class Meta:

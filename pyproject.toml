@@ -16,6 +16,8 @@ ipython = "^8.27.0"
 django-filter = "^24.3"
 djangorestframework-simplejwt = "^5.3.1"
 coverage = "^7.6.1"
+drf-yasg = "^1.21.7"
+stripe = "^10.9.0"
 
 
 [build-system]

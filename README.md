@@ -56,6 +56,9 @@ poetry install - Устанавливает зависимости
     
     # Django
     SECRET_KEY=secret_key - секретный ключ django проекта
+  
+    # API Stripe
+    STRIPE_API_KEY=secret_key - API-ключ stripe.com
     ```
 
 ### 4. Настройка БД:
