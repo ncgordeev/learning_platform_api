@@ -20,8 +20,8 @@ class SubscriptionTestCase(APITestCase):
         response = self.client.post(reverse('users:subscribe'), data=data)
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.json(), {"message": "подписка удалена"})
+        self.assertEqual(response.json(), {"message": "Подписка удалена"})
 
         response = self.client.post(reverse('users:subscribe'), data=data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.json(), {"message": "подписка добавлена"})
+        self.assertEqual(response.json(), {"message": "Подписка добавлена"})
