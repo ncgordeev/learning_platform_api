@@ -30,7 +30,7 @@ class LessonTestCase(APITestCase):
             "id": 2,
             "title": "Урок 2",
             "description": "Описание урока 2",
-            "preview": "http://testserver/media/lesson/image/default_lesson.jpg",
+            "preview": "http://testserver/media/lessons/preview/default.png",
             "url": "https://youtube.com/444",
             "course": self.course.pk,
             "owner": self.user.pk
@@ -64,7 +64,7 @@ class LessonTestCase(APITestCase):
             "id": self.lesson.pk,
             "title": "Урок",
             "description": "Измененное описание урока",
-            "preview": "http://testserver/media/lesson/image/default_lesson.jpg",
+            "preview": "http://testserver/media/lessons/preview/default.png",
             "url": "https://youtube.com/123",
             "course": self.course.pk,
             "owner": self.user.pk
@@ -82,7 +82,7 @@ class LessonTestCase(APITestCase):
                 {"id": self.lesson.pk,
                  "title": "Урок 1",
                  "description": "Тестовый урок 1",
-                 "preview": "http://testserver/media/lesson/image/default_lesson.jpg",
+                 "preview": "http://testserver/media/lessons/preview/default.png",
                  "url": "https://youtube.com/123",
                  "course": self.course.pk,
                  "owner": self.user.pk
@@ -99,7 +99,7 @@ class LessonTestCase(APITestCase):
             "id": self.lesson.pk,
             "title": "Урок 1",
             "description": "Тестовый урок 1",
-            "preview": "http://testserver/media/lesson/image/default_lesson.jpg",
+            "preview": "http://testserver/media/lessons/preview/default.png",
             "url": "https://youtube.com/123",
             "course": self.course.pk,
             "owner": self.user.pk
